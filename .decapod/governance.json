@@ -20,6 +20,11 @@
       "id": "baseline",
       "summary": "Preserve governed baseline before any access behavior changes",
       "input_digest": "sha256:f8fe1cf0451a80784fb5fd737754a5c2439caaa9f48f675558c94d00b76d87e8"
+    },
+    {
+      "id": "baseline-spec",
+      "summary": "Author acceptance and baseline limitation without changing access behavior",
+      "input_digest": "sha256:8d1679aa895d744d7ff3d5a7eec21a521b246711a98f27c72c14907b3c0791c7"
     }
   ],
   "intents": {
@@ -76,8 +81,13 @@
       "active_boundaries": [
         "Current claimed task and isolated work branch"
       ],
-      "artifact_hash": "sha256:054f1a4627a17dfb94e3ce99bb7b730ca4ad26d529136d6bcad09b7e897ad16e",
-      "checks": [],
+      "artifact_hash": "sha256:05565650b66aa359b52bce72a4824d07fa4f5821f3a63b6a3a56188977ba5bd5",
+      "checks": [
+        {
+          "name": "baseline-prerequisites",
+          "status": "failed"
+        }
+      ],
       "current_phase": "intent",
       "custody": {
         "events": [
@@ -99,10 +109,17 @@
             "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
             "kind": "trajectory_step_recorded",
             "sequence": 4
+          },
+          {
+            "detail": "trajectory:branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "event_id": "event:5",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "trajectory_step_recorded",
+            "sequence": 5
           }
         ],
         "knowledge_candidates": [],
-        "next_sequence": 4,
+        "next_sequence": 5,
         "schema_version": "1.1.0",
         "trajectories": {
           "branch_01M7XDDJJJF14FGH88EN6G4REP": {
@@ -123,6 +140,22 @@
                 ],
                 "sequence": 4,
                 "validation_findings": []
+              },
+              {
+                "action": "trajectory.record",
+                "custody_event_id": "event:5",
+                "observations": [
+                  ".decapod/managed/specs/INTENT.md",
+                  "/tmp/decapod-1758-baseline.json"
+                ],
+                "proof_refs": [
+                  "baseline-prerequisites"
+                ],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 5,
+                "validation_findings": []
               }
             ]
           }
@@ -130,13 +163,17 @@
       },
       "declared_commands": [],
       "destination": "pull request",
-      "evidence": [],
+      "evidence": [
+        "/tmp/decapod-1758-baseline.json"
+      ],
       "inspected_files": [
         ".decapod/config.toml",
         "README.md"
       ],
       "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
-      "modified_files": [],
+      "modified_files": [
+        ".decapod/managed/specs/INTENT.md"
+      ],
       "next_transitions": [
         "Refine plan and declare falsifiable checks"
       ],

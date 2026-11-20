@@ -10,6 +10,22 @@ Describe the configured project from purpose to architecture to implementation d
 
 Use the seeded context below as a starting point to verify against repository sources. Replace example diagrams, suggested controls, targets, tables, and blank fields with source-grounded prose; mark non-applicable topics with a reason. Do not adopt a store, queue, server, CI provider, replay guarantee, or service level merely because it appears in a template.
 
+## Repository Read Acceptance
+The library protects repository reads for organization members and repository owners.
+README.md requires active membership in the owning organization plus either an
+explicit grant for the requested repository or ownership of that repository.
+Anonymous actors, revoked members (including owners), outsiders, and grants for
+other repositories must be denied. `src/guard.txt` remains an independent guard.
+
+Baseline observation: `src/access.cjs::canRead` currently checks only active
+organization membership, so it does not yet enforce repository-scoped grants.
+Before changing that behavior, retain an actual failing `authorization-contract`
+execution through structured Decapod validation. The first validation attempt
+stopped at FINGERPRINT_ONLY_SPECS; it is not authorization-regression evidence.
+The accepted literal assertions in `.decapod/config.toml` govern proof, not any
+replacement test. Publication requires fresh exact-candidate proof and Decapod
+admission; merging and external deployment are out of scope.
+
 ## Product Outcome
 - An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication
 
