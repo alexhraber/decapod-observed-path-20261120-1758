@@ -30,6 +30,11 @@
       "id": "authorization-fix",
       "summary": "Enforce repository grant or ownership after active organization membership; preserve native failing baseline and independent guard",
       "input_digest": "sha256:5f5c99b3bdc7851fb97b72a823e05201561a4b4796577e2c471099e3033f476d"
+    },
+    {
+      "id": "interface-review",
+      "summary": "Record current-content interface review required by validation",
+      "input_digest": "sha256:572066be8197db7be7261463953a5331cdec30a6f106f96f2777714fb8c8df97"
     }
   ],
   "intents": {
@@ -72,6 +77,15 @@
         "decapod validate"
       ],
       "schema_version": "1.1.0",
+      "spec_reviews": [
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/INTERFACES.md",
+          "reason": "Reviewed canRead against current source: strict active and organization gates precede owner or array grant; documents null actor, missing grants, caller-owned valid records and boolean output; accepted assertions unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "0e38bb685855fb1e28657cb1198cb320886d75f6e9ba13844bd952d834e0c214"
+        }
+      ],
       "state": "APPROVED",
       "stop_conditions": [],
       "title": "Implement README repository-scoped read authorization; retain failing baseline and publish verified unmerged PR",
@@ -80,7 +94,7 @@
       ],
       "unknowns": [],
       "unresolved_contradictions": [],
-      "updated_at": "1795209784Z"
+      "updated_at": "1795209965Z"
     },
     "trajectory": {
       "active_boundaries": [
