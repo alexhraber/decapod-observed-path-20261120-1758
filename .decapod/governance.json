@@ -40,6 +40,11 @@
       "id": "architecture-review",
       "summary": "Record current architecture review following required spec gate",
       "input_digest": "sha256:32299d6c5a065327df445b04f11ed7103847aec98912628725221d8d1580cfcb"
+    },
+    {
+      "id": "security-review",
+      "summary": "Document and review resource authorization trust boundary",
+      "input_digest": "sha256:c868cb9fb070d527cbfd1a611f912e42cc519f5b9b5169737f24c8726f915126"
     }
   ],
   "intents": {
@@ -96,6 +101,13 @@
           "reason": "Reviewed canRead against current source: strict active and organization gates precede owner or array grant; documents null actor, missing grants, caller-owned valid records and boolean output; accepted assertions unchanged.",
           "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
           "spec_material_hash": "0e38bb685855fb1e28657cb1198cb320886d75f6e9ba13844bd952d834e0c214"
+        },
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/SECURITY.md",
+          "reason": "Reviewed source and README: membership alone no longer authorizes reads; owner bypass applies only to grants, not active or organization gates. Documents caller identity trust boundary and absent infrastructure controls; guard and accepted proof unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "c34cff61498db8a747b259682f2e062ac4a78e8685391f64ae2bd2fec912116f"
         }
       ],
       "state": "APPROVED",
@@ -106,7 +118,7 @@
       ],
       "unknowns": [],
       "unresolved_contradictions": [],
-      "updated_at": "1795209994Z"
+      "updated_at": "1795210046Z"
     },
     "trajectory": {
       "active_boundaries": [
