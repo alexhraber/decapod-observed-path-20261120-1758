@@ -25,6 +25,14 @@
       "id": "baseline-spec",
       "summary": "Document intended authorization and seeded defect before measuring baseline",
       "input_digest": "sha256:83cc0f82942ad111cfb13ba11e5257fda2cb5f68b95b97849cbe285fd1334f7a"
+    },
+    {
+      "id": "implement-read-auth",
+      "summary": "Require active organization membership plus ownership or explicit repository grant; retain failing baseline",
+      "input_digest": "sha256:824424b0c7d450d02856e5568d92c665b4f8ee320048e660e911962b3c80555a",
+      "proof_refs": [
+        "evidence/baseline/validation.json"
+      ]
     }
   ],
   "intents": {
@@ -76,10 +84,16 @@
     },
     "trajectory": {
       "active_boundaries": [
-        "Current claimed task and isolated work branch"
+        "Current claimed task and isolated work branch",
+        "Preserve guard, accepted assertions and policy; no merge"
       ],
-      "artifact_hash": "sha256:bdb66b63c210686f7073ff91d5d1f9458f63feba93e77cd73061eadb7c8ab362",
-      "checks": [],
+      "artifact_hash": "sha256:88d668e984b35c2d00ccc0ba4c1f506de60d697dc2f1caa1a7fa590d15efa353",
+      "checks": [
+        {
+          "name": "seeded-authorization",
+          "status": "failed"
+        }
+      ],
       "current_phase": "intent",
       "custody": {
         "events": [
@@ -101,10 +115,24 @@
             "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
             "kind": "trajectory_step_recorded",
             "sequence": 4
+          },
+          {
+            "detail": "trajectory:branch_01M7XC2N6HSBMK8MAZYQ80KDDQ",
+            "event_id": "event:5",
+            "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
+            "kind": "trajectory_step_recorded",
+            "sequence": 5
+          },
+          {
+            "detail": "trajectory:branch_01M7XC2N6HSBMK8MAZYQ80KDDQ",
+            "event_id": "event:6",
+            "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
+            "kind": "trajectory_step_recorded",
+            "sequence": 6
           }
         ],
         "knowledge_candidates": [],
-        "next_sequence": 4,
+        "next_sequence": 6,
         "schema_version": "1.1.0",
         "trajectories": {
           "branch_01M7XC2N6HSBMK8MAZYQ80KDDQ": {
@@ -126,21 +154,66 @@
                 ],
                 "sequence": 4,
                 "validation_findings": []
+              },
+              {
+                "action": "trajectory.record",
+                "command": "decapod validate --format json",
+                "custody_event_id": "event:5",
+                "observations": [
+                  "evidence/baseline/validation.json",
+                  "evidence/baseline/authorization.stderr"
+                ],
+                "proof_refs": [
+                  "seeded-authorization"
+                ],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 5,
+                "validation_findings": []
+              },
+              {
+                "action": "trajectory.record",
+                "custody_event_id": "event:6",
+                "observations": [
+                  "src/access.cjs",
+                  ".decapod/managed/specs/INTENT.md",
+                  ".decapod/managed/specs/ARCHITECTURE.md",
+                  ".decapod/managed/specs/INTERFACES.md",
+                  "evidence/baseline/observed-path.json"
+                ],
+                "proof_refs": [],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 6,
+                "validation_findings": []
               }
             ]
           }
         }
       },
-      "declared_commands": [],
+      "declared_commands": [
+        "decapod validate --format json"
+      ],
       "destination": "pull request",
-      "evidence": [],
+      "evidence": [
+        "evidence/baseline/authorization.stderr",
+        "evidence/baseline/observed-path.json",
+        "evidence/baseline/validation.json"
+      ],
       "inspected_files": [
         ".decapod/config.toml",
         "README.md",
         "src/access.cjs"
       ],
       "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
-      "modified_files": [],
+      "modified_files": [
+        ".decapod/managed/specs/ARCHITECTURE.md",
+        ".decapod/managed/specs/INTENT.md",
+        ".decapod/managed/specs/INTERFACES.md",
+        "src/access.cjs"
+      ],
       "next_transitions": [
         "Refine plan and declare falsifiable checks"
       ],

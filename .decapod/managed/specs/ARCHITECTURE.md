@@ -3,6 +3,9 @@
 ## Project Purpose
 An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication
 
+## Authorization Component
+`src/access.cjs` exports a pure synchronous CommonJS predicate, `canRead`. It performs no I/O and stores no state. The caller supplies membership and repository data. Strict `active === true` and organization equality are prerequisites for both ownership and grant-based reads. Ownership compares actor ID with repository owner ID; otherwise an array-valued `repositoryIds` must include the repository ID. `src/guard.txt` remains an independent source guard, checked separately by the accepted proof contract. No server, cloud integration, or dependency installation is introduced.
+
 ## Authoring Scope and Evidence
 Project: Repository authorization acceptance. This is an initial authoring scaffold, not an implementation attestation.
 
@@ -131,7 +134,7 @@ Do not assume database transactions, automatic retries, or side-effect rollback.
 
 ## Codebase Attestation
 
-- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Repository signal fingerprint: `ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a`
 - Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
 - Refreshed from the current codebase by `decapod rpc --op specs.refresh`
 <!-- decapod:codebase-attestation:end -->

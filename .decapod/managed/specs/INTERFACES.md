@@ -3,6 +3,9 @@
 ## Project Purpose
 An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication
 
+## Repository Read API
+`require('./src/access.cjs').canRead(actor, repository)` returns a Boolean. Repository data contains `id`, `organizationId`, and `ownerId`; authenticated actor data contains `id`, `organizationId`, strictly Boolean `active`, and optional array `repositoryIds`. Anonymous actors return false. Active same-organization owners need no grant; other members require an exact matching repository ID in the grant array. Inactive and foreign-organization actors are denied even when they own or have grants. Callers remain responsible for supplying trusted, well-formed identity and repository records; this predicate does not authenticate them. Missing or non-array grants cannot authorize a nonowner.
+
 ## Authoring Scope and Evidence
 Project: Repository authorization acceptance. This is an initial authoring scaffold, not an implementation attestation.
 
@@ -110,7 +113,7 @@ export enum ApiErrorCode {
 
 ## Codebase Attestation
 
-- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Repository signal fingerprint: `ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a`
 - Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
 - Refreshed from the current codebase by `decapod rpc --op specs.refresh`
 <!-- decapod:codebase-attestation:end -->

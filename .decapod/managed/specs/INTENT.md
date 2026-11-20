@@ -13,7 +13,7 @@ Use the seeded context below as a starting point to verify against repository so
 ## Product Outcome
 Repository authorization acceptance supplies a synchronous read predicate for callers with organization membership and repository grant data. README.md requires active membership in the owning organization plus either repository ownership or an explicit grant for that repository. Anonymous actors, revoked memberships, outsiders, and grants for different repositories must be denied.
 
-The inspected seeded `src/access.cjs::canRead` currently checks only active organization membership. This is a known defect, not the intended contract. Before changing that source, run structured Decapod validation to retain the failing accepted authorization assertions. Keep `src/guard.txt` and the independent proof commands unchanged. Delivery requires fresh exact-candidate proof and an unmerged PR published through Decapod; merge, cloud services, and external dependencies are outside scope.
+The seeded `src/access.cjs::canRead` checked only active organization membership. Structured Decapod validation at commit `0d12eb06b5980e581c2739216859ff6f9187b531` reproduced the `missing repository grant` assertion failure before implementation; the report and stderr are retained under `evidence/baseline/`. The corrected predicate additionally requires ownership or a matching entry in an array of repository IDs. Missing grants deny nonowners. Keep `src/guard.txt` and the independent proof commands unchanged. Delivery requires fresh exact-candidate proof and an unmerged PR published through Decapod; merge, cloud services, and external dependencies are outside scope.
 
 ## What This Project Is
 Repository authorization acceptance is a service_or_library project built using JavaScript.
@@ -136,7 +136,7 @@ flowchart LR
 
 ## Codebase Attestation
 
-- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Repository signal fingerprint: `ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a`
 - Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
 - Refreshed from the current codebase by `decapod rpc --op specs.refresh`
 <!-- decapod:codebase-attestation:end -->
