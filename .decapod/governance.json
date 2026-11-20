@@ -25,6 +25,11 @@
       "id": "baseline-spec",
       "summary": "Author acceptance and baseline limitation without changing access behavior",
       "input_digest": "sha256:8d1679aa895d744d7ff3d5a7eec21a521b246711a98f27c72c14907b3c0791c7"
+    },
+    {
+      "id": "authorization-fix",
+      "summary": "Enforce repository grant or ownership after active organization membership; preserve native failing baseline and independent guard",
+      "input_digest": "sha256:5f5c99b3bdc7851fb97b72a823e05201561a4b4796577e2c471099e3033f476d"
     }
   ],
   "intents": {
@@ -81,14 +86,18 @@
       "active_boundaries": [
         "Current claimed task and isolated work branch"
       ],
-      "artifact_hash": "sha256:05565650b66aa359b52bce72a4824d07fa4f5821f3a63b6a3a56188977ba5bd5",
+      "artifact_hash": "sha256:73c255e21992d2e3fd35b308efad6f5f46fd0fc1c2db52cd2ec29d967986162a",
       "checks": [
+        {
+          "name": "authorization-baseline",
+          "status": "failed"
+        },
         {
           "name": "baseline-prerequisites",
           "status": "failed"
         }
       ],
-      "current_phase": "intent",
+      "current_phase": "implementation",
       "custody": {
         "events": [
           {
@@ -116,10 +125,17 @@
             "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
             "kind": "trajectory_step_recorded",
             "sequence": 5
+          },
+          {
+            "detail": "trajectory:branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "event_id": "event:6",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "trajectory_step_recorded",
+            "sequence": 6
           }
         ],
         "knowledge_candidates": [],
-        "next_sequence": 5,
+        "next_sequence": 6,
         "schema_version": "1.1.0",
         "trajectories": {
           "branch_01M7XDDJJJF14FGH88EN6G4REP": {
@@ -156,23 +172,53 @@
                 ],
                 "sequence": 5,
                 "validation_findings": []
+              },
+              {
+                "action": "implementation",
+                "command": "decapod validate --format json",
+                "custody_event_id": "event:6",
+                "observations": [
+                  "src/access.cjs",
+                  "src/access.cjs",
+                  ".decapod/managed/specs/INTENT.md",
+                  ".decapod/managed/specs/ARCHITECTURE.md",
+                  ".decapod/managed/specs/INTERFACES.md",
+                  "/tmp/decapod-1758-baseline-native.json",
+                  "/private/var/folders/h9/41kb5hv95hg9yw44654rnl9c0000gn/T/decapod-readiness-jQ88uX/native-0.stderr"
+                ],
+                "proof_refs": [
+                  "authorization-baseline"
+                ],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 6,
+                "validation_findings": []
               }
             ]
           }
         }
       },
-      "declared_commands": [],
+      "declared_commands": [
+        "decapod validate --format json"
+      ],
       "destination": "pull request",
       "evidence": [
+        "/private/var/folders/h9/41kb5hv95hg9yw44654rnl9c0000gn/T/decapod-readiness-jQ88uX/native-0.stderr",
+        "/tmp/decapod-1758-baseline-native.json",
         "/tmp/decapod-1758-baseline.json"
       ],
       "inspected_files": [
         ".decapod/config.toml",
-        "README.md"
+        "README.md",
+        "src/access.cjs"
       ],
       "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
       "modified_files": [
-        ".decapod/managed/specs/INTENT.md"
+        ".decapod/managed/specs/ARCHITECTURE.md",
+        ".decapod/managed/specs/INTENT.md",
+        ".decapod/managed/specs/INTERFACES.md",
+        "src/access.cjs"
       ],
       "next_transitions": [
         "Refine plan and declare falsifiable checks"

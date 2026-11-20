@@ -17,11 +17,14 @@ explicit grant for the requested repository or ownership of that repository.
 Anonymous actors, revoked members (including owners), outsiders, and grants for
 other repositories must be denied. `src/guard.txt` remains an independent guard.
 
-Baseline observation: `src/access.cjs::canRead` currently checks only active
-organization membership, so it does not yet enforce repository-scoped grants.
-Before changing that behavior, retain an actual failing `authorization-contract`
-execution through structured Decapod validation. The first validation attempt
-stopped at FINGERPRINT_ONLY_SPECS; it is not authorization-regression evidence.
+`src/access.cjs::canRead` now requires repository ownership or an array containing
+the requested repository ID after the active owning-organization membership gate.
+Before that change, structured native validation at commit
+`a9f110c46f2bee76af428af0682ff8e31483fbe2` failed the accepted
+`authorization-contract` assertion `missing repository grant` (true !== false).
+Evidence is retained in `decapod-readiness-jQ88uX/native-0.stderr` and its
+structured observations. The earlier FINGERPRINT_ONLY_SPECS failure did not
+establish regression causality; the native assertion failure does.
 The accepted literal assertions in `.decapod/config.toml` govern proof, not any
 replacement test. Publication requires fresh exact-candidate proof and Decapod
 admission; merging and external deployment are out of scope.
@@ -150,7 +153,7 @@ flowchart LR
 
 ## Codebase Attestation
 
-- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Repository signal fingerprint: `9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650`
 - Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
 - Refreshed from the current codebase by `decapod rpc --op specs.refresh`
 <!-- decapod:codebase-attestation:end -->

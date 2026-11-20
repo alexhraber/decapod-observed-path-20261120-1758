@@ -139,7 +139,7 @@ Use structured logging (pino/winston) with request_id, actor, latency_ms, and er
 
 ## Codebase Attestation
 
-- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Repository signal fingerprint: `9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650`
 - Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
 - Refreshed from the current codebase by `decapod rpc --op specs.refresh`
 <!-- decapod:codebase-attestation:end -->
