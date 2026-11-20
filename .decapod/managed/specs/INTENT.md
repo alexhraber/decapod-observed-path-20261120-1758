@@ -129,3 +129,12 @@ flowchart LR
 |---|---|---|---|
 | Which interfaces are versioned at launch? | TBD | YYYY-MM-DD | |
 | Which non-functional target is hardest to hit? | TBD | YYYY-MM-DD | |
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->
