@@ -1,0 +1,82 @@
+schema_version = "1.0.0"
+
+[context]
+declared_sources = []
+
+[custody]
+isolation = "worktree"
+
+[governance]
+approval_categories = ["destructive_operations"]
+protected_paths = []
+
+[init]
+ci = false
+diagram_style = "ascii"
+entrypoints = [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "CODEX.md",
+]
+specs = true
+
+[proof]
+validation_buildkite_preflights = false
+
+[[proof.commands]]
+name = "authorization-contract"
+command = "/opt/homebrew/Cellar/node/26.11.1/bin/node"
+args = ["-e", "const assert = require('node:assert/strict');\nconst {canRead} = require(process.cwd() + '/src/access.cjs');\nconst repo = {id:'repo-a', organizationId:'org-a', ownerId:'owner-a'};\nconst member = {id:'member-a', organizationId:'org-a', active:true, repositoryIds:['repo-a']};\nconst cases = [\n ['explicit repository grant', member, true],\n ['repository owner', {...member,id:'owner-a',repositoryIds:[]}, true],\n ['missing repository grant', {...member,repositoryIds:[]}, false],\n ['grant for another repository', {...member,repositoryIds:['repo-b']}, false],\n ['foreign organization with matching grant', {...member,organizationId:'org-b'}, false],\n ['revoked membership', {...member,active:false}, false],\n ['revoked owner', {...member,id:'owner-a',active:false}, false],\n ['anonymous actor', null, false],\n ['missing active membership', {...member,active:undefined}, false],\n ['missing grants', {id:'member-a',organizationId:'org-a',active:true}, false]\n];\nfor(const [name,actor,expected] of cases) assert.equal(canRead(actor,repo),expected,name);\nconsole.log('10 independent repository authorization assertions passed');\n"]
+description = "Accepted independent repository source assertions"
+required = true
+
+[[proof.commands]]
+name = "guard-contract"
+command = "/usr/bin/grep"
+args = ["-F", "-x", "--", "required", "src/guard.txt"]
+description = "Accepted independent repository source assertions"
+required = true
+
+[proof.required_profile]
+id = "repo.pr-readiness.v1"
+reviewed_sources_digest = "sha256:6f7e5c7c150a4430f0d984b80c60c11374fb50fc4ba1759d77f1c17a5dc839b7"
+
+[proof.repository_contract]
+reviewed_commands_digest = "sha256:64e09d83106fb694688e1b2ee5e8ca592cd5054108b8440d5a77895483d828e6"
+source_coverage = []
+
+[proof.repository_contract.executions.authorization-contract]
+program = "/opt/homebrew/Cellar/node/26.11.1/bin/node"
+directory = "."
+timeout_seconds = 20
+toolchain_files = { declared-loader = "/usr/lib/dyld" }
+environment = { LC_ALL = "C" }
+
+[proof.repository_contract.executions.guard-contract]
+program = "/usr/bin/grep"
+directory = "."
+timeout_seconds = 20
+toolchain_files = { declared-loader = "/usr/lib/dyld" }
+environment = { LC_ALL = "C" }
+
+
+[repo]
+architecture_direction = "cli"
+backend = "local"
+base_branch = "main"
+container_workspaces = false
+done_criteria = "Required repository access assertions, governed task/workspace, fresh proof and exact GitHub PR admission; no merge authorization"
+external_tracker = false
+primary_languages = ["JavaScript"]
+product_name = "Repository authorization acceptance"
+product_summary = "An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication"
+product_type = "service_or_library"
+
+[tracker]
+provider = "decapod"
+
+[proof.observed_path]
+schema_version = "1.0.0"
+scope = "native_proof_calls"
+required = true
