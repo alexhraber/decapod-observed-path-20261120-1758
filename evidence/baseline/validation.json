@@ -1,0 +1,566 @@
+{
+  "agent_guidance": {
+    "entry_command": "decapod validate",
+    "execution": "Validation owns the configured build prerequisites, verification and tests through the selected provider and binds proof to the produced artifacts. Start once the source and required checkpoint are ready; no separate manual build is a prerequisite. Do not ask again before an already-authorized configured validation push or a supported, safely replayable retry to the same repository and workspace branch. Recheck the exact source and accepted target; stop on explicit cancellation, access or authorization denial, or a change that requires new authority.",
+    "human_input_when": "Stop for unresolved intent, a decision gate, missing authorization or unavailable access; request the specific human input without delegating ordinary configuration, build orchestration or repair to the human.",
+    "instruction": "Agent: inspect the blockers and evidence, configure or repair the project's actual build, test and CI contract within the governed scope, checkpoint the repaired source, then rerun decapod validate. Preserve required checks and artifact custody; unsupported adapters remain blockers.",
+    "next_action": "repair_and_revalidate",
+    "owner": "agent",
+    "phase": "validation"
+  },
+  "publication_ready": false,
+  "readiness": {
+    "agent_guidance": {
+      "entry_command": "decapod validate",
+      "execution": "Validation owns the configured build prerequisites, verification and tests through the selected provider and binds proof to the produced artifacts. Start once the source and required checkpoint are ready; no separate manual build is a prerequisite. Do not ask again before an already-authorized configured validation push or a supported, safely replayable retry to the same repository and workspace branch. Recheck the exact source and accepted target; stop on explicit cancellation, access or authorization denial, or a change that requires new authority.",
+      "human_input_when": "Stop for unresolved intent, a decision gate, missing authorization or unavailable access; request the specific human input without delegating ordinary configuration, build orchestration or repair to the human.",
+      "instruction": "Agent: inspect the blockers and evidence, configure or repair the project's actual build, test and CI contract within the governed scope, checkpoint the repaired source, then rerun decapod validate. Preserve required checks and artifact custody; unsupported adapters remain blockers.",
+      "next_action": "repair_and_revalidate",
+      "owner": "agent",
+      "phase": "validation"
+    },
+    "blockers": [
+      {
+        "check": null,
+        "code": "READINESS_BLOCKED",
+        "detail": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven"
+      }
+    ],
+    "evidence_path": "/private/var/folders/h9/41kb5hv95hg9yw44654rnl9c0000gn/T/decapod-readiness-v3RdWC",
+    "laya_readiness": null,
+    "observed_path": {
+      "authority": "project_override",
+      "binding": {
+        "actor": "pi-1758-observed-path-a-20261120",
+        "execution": {
+          "governance_digest": "sha256:5867de74cd3bf61788fe0a0383d5d98fb9b35576a674f8231144ac5b0c37a77b",
+          "head_revision": "0d12eb06b5980e581c2739216859ff6f9187b531",
+          "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
+          "material_digest": "sha256:46322dd06a5e72244a19dad96f781474ec741dadf9c50063ca30f727720357a5",
+          "plan_digest": "sha256:b0e9a704f09f51e7ea9919ecf21742825aebea2ed5f1d0f7057f3b9bf87cd3f2",
+          "policy_digest": "sha256:1e63f4b7b129002e7d216eb9a41dabb9e4ed6f354383af0fe81f01777c1d5752",
+          "required_approvals": [],
+          "run_id": "branch_01M7XC2N6HSBMK8MAZYQ80KDDQ",
+          "schema_version": "1.0.0",
+          "task_custody_digest": "sha256:e0377f3e23065173c756ff5a8688af339e6bdbaca9ee2f87ec3391b7bc894356",
+          "task_id": "feat_01m7xc230d7p7jra",
+          "trajectory_digest": "sha256:bdb66b63c210686f7073ff91d5d1f9458f63feba93e77cd73061eadb7c8ab362",
+          "validation_epoch_digest": "sha256:a8760b48864f23081ea3abc1b499a9eb63153fcc9d2b745443fcdb4de93a5889",
+          "work_branch": "agent/pi-1758/feat_01m7xc230d7p7jra-read-auth"
+        },
+        "instruction_revision": "sha256:8aedf44625845337417356c45a9d48c55e857a15ffc83a111a77bde794bb204c",
+        "lease_generation": 1,
+        "observation_run_id": "decapod-readiness-v3RdWC",
+        "producer": "decapod-native-runner/0.155.0",
+        "proof_plan_digest": "sha256:143121930ea16d57a9137b7f34f2177433fd046dbebbc1df86448923e9add63f",
+        "subject": {
+          "accepted_base_revision": "03e7cb8f7d0e392231134df891c19fdd5da43f95",
+          "base_branch": "main",
+          "candidate_digest": "sha256:35648eda12c2a9937b56c3d445127bd7cf183387b6cb7f319d29312e8c5be90b",
+          "configuration_digest": "sha256:25dda136ebe78c9f990df5507b930afc816e8929e50932a07dbfddbeed0a373d",
+          "head_revision": "0d12eb06b5980e581c2739216859ff6f9187b531",
+          "history_digest": "sha256:da0825d0f2203830da278f33888c23d98fedab121f81ee3ae6bb86d7fc33c90d",
+          "repository": "alexhraber/decapod-observed-path-20261120-1758",
+          "toolchain_digest": "sha256:2ac1b8165670d91a284b6eef71e1b36731df1eb2a9049c140c6d15ddf80c2c3d",
+          "tree_digest": "sha256:46322dd06a5e72244a19dad96f781474ec741dadf9c50063ca30f727720357a5",
+          "work_branch": "agent/pi-1758/feat_01m7xc230d7p7jra-read-auth",
+          "workflow_digest": "sha256:ec705cf11c7c129db71e511cd00705e0905a47db2cca97294090785470eb599a"
+        }
+      },
+      "events": [
+        {
+          "check": {
+            "job": "authorization-contract",
+            "matrix": {},
+            "profile": "repo.pr-readiness.v1",
+            "provider": "native",
+            "workflow": ".decapod/config.toml"
+          },
+          "event_id": "sha256:4e5c552181777a5178836fd2add482f51ccc937ecd9fe80ba501bc1b7f639ee2",
+          "kind": "authorization",
+          "operation_id": "sha256:5e5a34721200260783b6c1f745b86762c3e3a6328d80a98850d666466e055aae",
+          "outcome": "allowed",
+          "previous": null,
+          "sequence": 1
+        },
+        {
+          "check": {
+            "job": "guard-contract",
+            "matrix": {},
+            "profile": "repo.pr-readiness.v1",
+            "provider": "native",
+            "workflow": ".decapod/config.toml"
+          },
+          "event_id": "sha256:adb9a90084022ef4354ee47ffb76ab2359b8d0bd71e9560c523352af9b39896b",
+          "kind": "authorization",
+          "operation_id": "sha256:a5e57e5018f93b1f19fcc2cd18e81b931be801e7c57a26a24eb16a6c039a8da7",
+          "outcome": "allowed",
+          "previous": "sha256:4e5c552181777a5178836fd2add482f51ccc937ecd9fe80ba501bc1b7f639ee2",
+          "sequence": 2
+        },
+        {
+          "check": {
+            "job": "authorization-contract",
+            "matrix": {},
+            "profile": "repo.pr-readiness.v1",
+            "provider": "native",
+            "workflow": ".decapod/config.toml"
+          },
+          "event_id": "sha256:4d4da4dec966f2133b378f43def221660ec1e322b98bc0b813f7c218865cb53c",
+          "kind": "result",
+          "operation_id": "sha256:5e5a34721200260783b6c1f745b86762c3e3a6328d80a98850d666466e055aae",
+          "outcome": "failed",
+          "previous": "sha256:adb9a90084022ef4354ee47ffb76ab2359b8d0bd71e9560c523352af9b39896b",
+          "sequence": 3
+        }
+      ],
+      "full_host_coverage": "unverifiable",
+      "observation_coverage": "unverifiable",
+      "observer_authority": "kernel_mediated_native_runner",
+      "phase": "validation",
+      "process_conformance": "fail",
+      "reason": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven",
+      "required": true,
+      "rule_id": "project.observed_native_path",
+      "rule_remediation": {
+        "affected_paths": [
+          ".decapod/config.toml#/proof/observed_path"
+        ],
+        "autonomous_remediation_permitted": true,
+        "error_code": "OBSERVED_PATH_FAILED",
+        "evidence_for_revalidation": [
+          "Fresh actual native outcomes bound to current source/base/instructions/plan/policy/actor/lease"
+        ],
+        "expected_condition": "Current owned native authorization and terminal-result observations under the independently accepted policy",
+        "human_authorization_required": false,
+        "observed_condition": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven",
+        "related_rules": [],
+        "required_steps": [
+          "Restore the applicable plan and current task lease, retain the accepted path requirement, then rerun native validation through its authorizing adapter"
+        ],
+        "violation_description": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven"
+      },
+      "schema_version": "1.0.0",
+      "scope": "native_proof_calls",
+      "severity": "error",
+      "source": ".decapod/config.toml#/proof/observed_path"
+    },
+    "proof_ready": false,
+    "ready": false,
+    "scope": "repository_local_readiness",
+    "stage_dispositions": [
+      {
+        "disposition": "real",
+        "evidence_scope": "repository_local_readiness",
+        "key": {
+          "job": "authorization-contract",
+          "matrix": {},
+          "profile": "repo.pr-readiness.v1",
+          "provider": "native",
+          "workflow": ".decapod/config.toml"
+        },
+        "policy": "repo.pr-readiness.v1",
+        "reason": "Required repository-declared local command; actual bounded execution is mandatory",
+        "stage": "authorization-contract"
+      },
+      {
+        "disposition": "real",
+        "evidence_scope": "repository_local_readiness",
+        "key": {
+          "job": "guard-contract",
+          "matrix": {},
+          "profile": "repo.pr-readiness.v1",
+          "provider": "native",
+          "workflow": ".decapod/config.toml"
+        },
+        "policy": "repo.pr-readiness.v1",
+        "reason": "Required repository-declared local command; actual bounded execution is mandatory",
+        "stage": "guard-contract"
+      },
+      {
+        "disposition": "non_applicable",
+        "evidence_scope": "no_hosted_ci_or_release_assurance",
+        "key": null,
+        "policy": "repo.pr-readiness.v1",
+        "reason": "Local contract mappings do not attest hosted workflow, platform matrix, release packaging or deployment execution",
+        "stage": "hosted-ci-and-release"
+      }
+    ]
+  },
+  "report": {
+    "advisory_count": 0,
+    "ci_prediction": {
+      "confidence": "insufficient_proof",
+      "reasons": [
+        "READINESS_BLOCKED: Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven"
+      ],
+      "recommendations": [
+        "Follow the validation report, repair root causes on this branch, and rerun exact-candidate validation before PR creation; branch pushes may precede preflight"
+      ],
+      "result": "not_ready"
+    },
+    "drift_findings": [],
+    "elapsed_ms": 7719,
+    "fail_count": 1,
+    "failures": [
+      "publication_readiness: READINESS_BLOCKED: Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven"
+    ],
+    "gate_timings": [
+      {
+        "elapsed_ms": 2219,
+        "name": "validate_project_specs_docs"
+      },
+      {
+        "elapsed_ms": 1495,
+        "name": "validate_validation_rules"
+      },
+      {
+        "elapsed_ms": 784,
+        "name": "validate_machine_contract"
+      },
+      {
+        "elapsed_ms": 625,
+        "name": "validate_markdown_primitives_roundtrip_gate"
+      },
+      {
+        "elapsed_ms": 429,
+        "name": "validate_git_workspace_context"
+      },
+      {
+        "elapsed_ms": 150,
+        "name": "validate_obligations"
+      },
+      {
+        "elapsed_ms": 132,
+        "name": "validate_project_config_toml"
+      },
+      {
+        "elapsed_ms": 131,
+        "name": "validate_legacy_jsonl_retired"
+      },
+      {
+        "elapsed_ms": 130,
+        "name": "validate_stale_workspaces"
+      },
+      {
+        "elapsed_ms": 92,
+        "name": "validate_git_protected_branch"
+      },
+      {
+        "elapsed_ms": 62,
+        "name": "validate_plan_governed_execution_gate"
+      },
+      {
+        "elapsed_ms": 60,
+        "name": "validate_git_push_pr_gate"
+      },
+      {
+        "elapsed_ms": 55,
+        "name": "validate_archive_integrity"
+      },
+      {
+        "elapsed_ms": 39,
+        "name": "validate_federation_gates"
+      },
+      {
+        "elapsed_ms": 36,
+        "name": "validate_control_plane_contract"
+      },
+      {
+        "elapsed_ms": 27,
+        "name": "validate_repomap_determinism"
+      },
+      {
+        "elapsed_ms": 27,
+        "name": "validate_schema_determinism"
+      },
+      {
+        "elapsed_ms": 25,
+        "name": "validate_gatekeeper_gate"
+      },
+      {
+        "elapsed_ms": 24,
+        "name": "validate_lineage_hard_gate"
+      },
+      {
+        "elapsed_ms": 23,
+        "name": "validate_generated_artifact_whitelist"
+      },
+      {
+        "elapsed_ms": 19,
+        "name": "validate_knowledge_promotions_if_present"
+      },
+      {
+        "elapsed_ms": 18,
+        "name": "validate_spec_drift"
+      },
+      {
+        "elapsed_ms": 17,
+        "name": "validate_lcm_rebuild_gate"
+      },
+      {
+        "elapsed_ms": 16,
+        "name": "validate_watcher_audit"
+      },
+      {
+        "elapsed_ms": 16,
+        "name": "validate_knowledge_integrity"
+      },
+      {
+        "elapsed_ms": 16,
+        "name": "validate_database_schema_versions"
+      },
+      {
+        "elapsed_ms": 15,
+        "name": "validate_lcm_immutability"
+      },
+      {
+        "elapsed_ms": 15,
+        "name": "validate_trajectory_artifacts_if_present"
+      },
+      {
+        "elapsed_ms": 14,
+        "name": "validate_repo_map"
+      },
+      {
+        "elapsed_ms": 14,
+        "name": "validate_context_capsules_if_present"
+      },
+      {
+        "elapsed_ms": 14,
+        "name": "validate_validation_receipt_if_present"
+      },
+      {
+        "elapsed_ms": 14,
+        "name": "validate_policy_integrity"
+      },
+      {
+        "elapsed_ms": 13,
+        "name": "validate_context_capsule_policy_contract"
+      },
+      {
+        "elapsed_ms": 13,
+        "name": "validate_workunit_manifests_if_present"
+      },
+      {
+        "elapsed_ms": 13,
+        "name": "validate_health_cache_integrity"
+      },
+      {
+        "elapsed_ms": 12,
+        "name": "validate_recursive_improvement_passes_if_present"
+      },
+      {
+        "elapsed_ms": 12,
+        "name": "validate_research_claims_if_present"
+      },
+      {
+        "elapsed_ms": 11,
+        "name": "validate_override_authority"
+      },
+      {
+        "elapsed_ms": 11,
+        "name": "validate_no_legacy_namespaces"
+      },
+      {
+        "elapsed_ms": 11,
+        "name": "validate_entrypoint_invariants"
+      },
+      {
+        "elapsed_ms": 11,
+        "name": "validate_embedded_self_contained"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_health_purity"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_project_scoped_state"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_docs_templates_bucket"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_interface_contract_bootstrap"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_risk_map_violations"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_eval_gate_if_required"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_internalization_artifacts_if_present"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_tooling_gate"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_risk_map"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_root_dockerfile_seed_detection"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_state_commit_gate"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_open_file_limits"
+      },
+      {
+        "elapsed_ms": 10,
+        "name": "validate_heartbeat_invocation_gate"
+      },
+      {
+        "elapsed_ms": 9,
+        "name": "validate_coplayer_policy_tightening"
+      },
+      {
+        "elapsed_ms": 9,
+        "name": "validate_watcher_purity"
+      },
+      {
+        "elapsed_ms": 9,
+        "name": "validate_canon_mutation"
+      }
+    ],
+    "note_count": 63,
+    "notes": [
+      "Agent Trajectory Artifact Gate",
+      "Archive Integrity Gate",
+      "Canon Mutation Gate",
+      "Co-Player Policy Tightening Gate",
+      "Context Capsule Gate",
+      "Context Capsule Policy Gate",
+      "Control Plane Contract Gate",
+      "Database Schema Version Gate",
+      "Embedded Self-Contained Gate",
+      "Entrypoint Commit Discipline Gate",
+      "Entrypoint Gate",
+      "Eval Gate Requirement",
+      "Federation Gates",
+      "Four Invariants Gate",
+      "Gatekeeper Safety Gate",
+      "Generated Artifact Whitelist Gate",
+      "Git Protected Branch Gate",
+      "Git Push & PR Gate",
+      "Git Workspace Context Gate",
+      "Governance PR Update Gate",
+      "Health Cache Non-Authoritative Gate",
+      "Health Purity Gate",
+      "Heartbeat Invocation Gate",
+      "Interface Contract Bootstrap Gate",
+      "Internalization Artifact Gate",
+      "Knowledge Integrity Gate",
+      "Knowledge Promotion Ledger Gate",
+      "LCM Immutability Gate",
+      "LCM Rebuild Gate",
+      "Legacy JSONL Retirement Gate",
+      "Lineage Hard Gate",
+      "Living Specs Material Mutation Gate",
+      "Machine Contract Drift Detection Gate",
+      "Managed Spec Projection Inventory Gate",
+      "Markdown Primitive Round-Trip Gate",
+      "Namespace Purge Gate",
+      "Plan-Governed Execution Gate",
+      "Policy Integrity Gates",
+      "Project Config Gate",
+      "Project Specs Architecture Gate",
+      "Project-Scoped State Gate",
+      "Publication Bundle Currency Gate",
+      "Recursive Improvement Pass Gate",
+      "Repo Map",
+      "Repo Map Determinism Gate",
+      "Repository Override Authority Gate",
+      "Research Claims Ledger Gate",
+      "Risk Map Gate",
+      "Root Dockerfile Boundary Gate",
+      "STATE_COMMIT Validation Gate",
+      "STATE_COMMIT: required_ci_job = state_commit_golden_vectors",
+      "Schema Determinism Gate",
+      "Spec Drift Detection Gate (Hygiene)",
+      "Stale Workspaces Cleanup Gate",
+      "Store: repo (dogfood backlog semantics)",
+      "Tooling Validation Gate",
+      "Validation Receipt Gate",
+      "Validation Rules Gate",
+      "Watcher Audit Gate",
+      "Watcher Purity Gate",
+      "Work Unit Manifest Gate",
+      "Zone Violation Gate",
+      "material_specs: outcome=passed proof=authored_change"
+    ],
+    "parallelism": 1,
+    "pass_count": 194,
+    "skip_count": 13,
+    "status": "fail",
+    "temporary_artifacts_cleaned": 0,
+    "validation_epoch": {
+      "constitution_hash": "sha256:27c3a78e5546640f5ef8da0460decda605aca8f82b9019482bb27a8f0b6d8a5d",
+      "constitution_version": "embedded-docs@0.155.0",
+      "epoch_id": "ve_014bcaf404cd8a7d",
+      "evaluator_identity": "decapod-validate@0.155.0",
+      "evaluator_set_hash": "sha256:7e1c89b631d6ffb6994bd8ecade7468170de6efc177955361dabdd557956d41d",
+      "generated_specs_fingerprint": "7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d",
+      "generated_specs_manifest_hash": "sha256:292cba782d274c6e4d4f0ef04fac284c1af1a95eb423c74e41b184a7a464896b",
+      "material_hashes": {
+        "constitution:core/DECAPOD": "sha256:27c3a78e5546640f5ef8da0460decda605aca8f82b9019482bb27a8f0b6d8a5d",
+        "generated_spec:.decapod/managed/specs/ARCHITECTURE.md": "sha256:58ecab2d9b6c6fd93ac906754911103cb3cb42351808bfd8b099193005037223",
+        "generated_spec:.decapod/managed/specs/INTENT.md": "sha256:55aecdeff9f98f13762d9a6402643567fb812c2b04257c63950d781650dcf333",
+        "generated_spec:.decapod/managed/specs/INTERFACES.md": "sha256:ff50df571e2ce079bce727c58f7a82af1ed103ba0852239f1c246ff9f2e77004",
+        "generated_spec:.decapod/managed/specs/OPERATIONS.md": "sha256:6aef82a597c25c05375ddbaaaa18a5a16deec80b9d6a58bdf340344e5e6bffda",
+        "generated_spec:.decapod/managed/specs/README.md": "sha256:fe6d081910829838fd00144f497c37f5106bf8c1b763f9f1a506698af03f3a43",
+        "generated_spec:.decapod/managed/specs/SECURITY.md": "sha256:3087b3c09c7b7a285b94d9f4b007174d95c7781e6ed980e05c1349c9fd9674db",
+        "generated_spec:.decapod/managed/specs/SEMANTICS.md": "sha256:8b7e6ff368a97639403d665b7585813b57dde0c42279baff365829a4965a1f73",
+        "generated_spec:.decapod/managed/specs/VALIDATION.md": "sha256:98a064fcdf386465214bf9468c13309bbc7fd6a93638bad3708eb1db8197bd08",
+        "generated_specs_fingerprint": "7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d",
+        "generated_specs_manifest": "sha256:292cba782d274c6e4d4f0ef04fac284c1af1a95eb423c74e41b184a7a464896b",
+        "governance_context": "sha256:0a9465600a74295cc579cee9a2a6f03d94a802907aab28a554f6339667bcd913",
+        "governance_material:.decapod/managed/Dockerfile.decapod": "sha256:d47b6aee33821ba23c318fc4e3bb1e073dbd1c483a0734e829476cfb00840c26",
+        "governance_material:AGENTS.md": "sha256:a74ec42efeab47f85caff358054b1bd39b143b6d528277483a55381599050c1b",
+        "governance_material:CLAUDE.md": "sha256:ab73bd924ecbb633c6ab37ea94e95a146d93c2d146100086451147e8d69cbc08",
+        "governance_material:CODEX.md": "sha256:ee63c2e973eafebaad9636522a576f692804f72a2fdec44a3c91ef04235b6b48",
+        "governance_material:GEMINI.md": "sha256:cb514fecd1ec10bdd064906cf136fcb1864b4b3f6b7311da1594766e3366dfa8",
+        "governance_section:claims": "sha256:2549067214281572a7ef59e0e23cbe40d2157221842658669733c37193676e14",
+        "governance_section:plan": "sha256:07d9b190a405a0562ecf80bc958eb491cd031b2269f0ed22d2ef9bdbab611350",
+        "living_spec_material:.decapod/managed/specs/ARCHITECTURE.md": "sha256:a44ef5fda446fcb0d5bc26021c9a452275e875b3f764a8486701fd3a3a8265df",
+        "living_spec_material:.decapod/managed/specs/INTENT.md": "sha256:b1b0e0af619ebc237a513358f03290c28bb4c4e3f5d1a793d170fda3d422fc5a",
+        "living_spec_material:.decapod/managed/specs/INTERFACES.md": "sha256:a08af66695847c9204a41adbf422e91a23cd034cde9f8e3db01fcfbe9ece902a",
+        "living_spec_material:.decapod/managed/specs/OPERATIONS.md": "sha256:a178e5a0d40014cbe11b8b60582ffe8e2bd723d3c797a796ab24dcb02dde1f62",
+        "living_spec_material:.decapod/managed/specs/README.md": "sha256:71f154d4e26ce544f8e18b6ed667d1a22d8b8bd024af99de72f6d7f46148c0e1",
+        "living_spec_material:.decapod/managed/specs/SECURITY.md": "sha256:fab63d7c57ddecdf1a9ccac70f33a93e54792609dcc651fe18f4d6504b544ccd",
+        "living_spec_material:.decapod/managed/specs/SEMANTICS.md": "sha256:8d095ba669b9335ba24e4ef13dbadd6041178f3991eef8feb0fcb6321a920431",
+        "living_spec_material:.decapod/managed/specs/VALIDATION.md": "sha256:5576d1d023670e6991096ae1d1a623e474bd190ff2cc890fa2bec0b6c88fc565",
+        "proof_rubric": "sha256:99e8ef25629da391e9b479db9fff52b82f340224f7a69d8a88d2992ae8e90466",
+        "validation_profile": "sha256:37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f"
+      },
+      "proof_rubric": "decapod-validate/current-proof-v1",
+      "proof_rubric_hash": "sha256:99e8ef25629da391e9b479db9fff52b82f340224f7a69d8a88d2992ae8e90466",
+      "schema_version": "1.0.0",
+      "validation_profile": "default",
+      "validation_profile_hash": "sha256:37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f"
+    },
+    "warn_count": 4,
+    "warnings": [
+      "Risk map missing (run `decapod govern policy riskmap init`)",
+      "Stale workspaces preserved for explicit review: <external-path> (unregistered_workspace: workspace ownership is unverified; --force does not authorize deleting unrelated directories. Inspect and preserve or remove this directory explicitly), <external-path> (current_workspace: workspace contains the current process; rerun prune from the host checkout after leaving this workspace so Git can release the branch)",
+      "Watcher audit trail missing (run `decapod govern watcher run`)",
+      "Workspace branch 'agent/pi-1758/feat_01m7xc230d7p7jra-read-auth' has unpushed commits or does not exist on origin. Branch pushes and iteration are allowed before preflight; hold PR creation until intent is converged, the branch is mergeable, and full `decapod validate` succeeds against the exact current candidate and accepted target."
+    ]
+  },
+  "scope": "publication_readiness",
+  "self_heal": [],
+  "status": "fail",
+  "tmp_cleanup_guidance": null
+}
