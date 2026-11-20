@@ -20,6 +20,11 @@
       "id": "baseline-preparation",
       "summary": "Prepare governed baseline with seeded access behavior unchanged",
       "input_digest": "sha256:2ad27d92bfc0faf269d57858c281ca1f268a5f54002d7d0afc553f0fe5d9d3b1"
+    },
+    {
+      "id": "baseline-spec",
+      "summary": "Document intended authorization and seeded defect before measuring baseline",
+      "input_digest": "sha256:83cc0f82942ad111cfb13ba11e5257fda2cb5f68b95b97849cbe285fd1334f7a"
     }
   ],
   "intents": {

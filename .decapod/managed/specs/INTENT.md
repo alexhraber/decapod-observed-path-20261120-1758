@@ -11,7 +11,9 @@ Describe the configured project from purpose to architecture to implementation d
 Use the seeded context below as a starting point to verify against repository sources. Replace example diagrams, suggested controls, targets, tables, and blank fields with source-grounded prose; mark non-applicable topics with a reason. Do not adopt a store, queue, server, CI provider, replay guarantee, or service level merely because it appears in a template.
 
 ## Product Outcome
-- An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication
+Repository authorization acceptance supplies a synchronous read predicate for callers with organization membership and repository grant data. README.md requires active membership in the owning organization plus either repository ownership or an explicit grant for that repository. Anonymous actors, revoked memberships, outsiders, and grants for different repositories must be denied.
+
+The inspected seeded `src/access.cjs::canRead` currently checks only active organization membership. This is a known defect, not the intended contract. Before changing that source, run structured Decapod validation to retain the failing accepted authorization assertions. Keep `src/guard.txt` and the independent proof commands unchanged. Delivery requires fresh exact-candidate proof and an unmerged PR published through Decapod; merge, cloud services, and external dependencies are outside scope.
 
 ## What This Project Is
 Repository authorization acceptance is a service_or_library project built using JavaScript.
