@@ -35,6 +35,11 @@
       "id": "interface-review",
       "summary": "Record current-content interface review required by validation",
       "input_digest": "sha256:572066be8197db7be7261463953a5331cdec30a6f106f96f2777714fb8c8df97"
+    },
+    {
+      "id": "architecture-review",
+      "summary": "Record current architecture review following required spec gate",
+      "input_digest": "sha256:32299d6c5a065327df445b04f11ed7103847aec98912628725221d8d1580cfcb"
     }
   ],
   "intents": {
@@ -80,6 +85,13 @@
       "spec_reviews": [
         {
           "disposition": "updated",
+          "path": ".decapod/managed/specs/ARCHITECTURE.md",
+          "reason": "Reviewed source: pure synchronous CommonJS predicate, no persistence or network; organization/active gates cannot be bypassed by ownership; grant array guarded; independent source guard unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "37d62c81660b4db9cdeecbd5c93caa0940b83a81c9b5daaa73ea709580f077fa"
+        },
+        {
+          "disposition": "updated",
           "path": ".decapod/managed/specs/INTERFACES.md",
           "reason": "Reviewed canRead against current source: strict active and organization gates precede owner or array grant; documents null actor, missing grants, caller-owned valid records and boolean output; accepted assertions unchanged.",
           "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
@@ -94,7 +106,7 @@
       ],
       "unknowns": [],
       "unresolved_contradictions": [],
-      "updated_at": "1795209965Z"
+      "updated_at": "1795209994Z"
     },
     "trajectory": {
       "active_boundaries": [
