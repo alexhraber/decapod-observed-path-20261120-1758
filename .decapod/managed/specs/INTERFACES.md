@@ -10,6 +10,23 @@ Describe the configured project from purpose to architecture to implementation d
 
 Use the seeded context below as a starting point to verify against repository sources. Replace example diagrams, suggested controls, targets, tables, and blank fields with source-grounded prose; mark non-applicable topics with a reason. Do not adopt a store, queue, server, CI provider, replay guarantee, or service level merely because it appears in a template.
 
+## Implemented Library Contract
+`require('./src/access.cjs').canRead(actor, repository)` synchronously returns a
+boolean. The repository record supplies `id`, `organizationId`, and `ownerId`;
+the actor supplies `id`, `organizationId`, `active`, and optional `repositoryIds`.
+IDs are caller-provided identifiers compared strictly without coercion. Callers
+must supply a valid repository and authenticated identity/membership records;
+arbitrary malformed repositories are outside this contract.
+
+A null actor, inactive/missing active membership, or foreign organization is
+denied. Otherwise the actor must match `ownerId` or have `repository.id` in an
+array `repositoryIds`. Missing grants deny non-owners, not active owners. A grant
+for another repository grants no access. Ownership does not bypass either the
+active membership or owning-organization requirements. No inputs are modified.
+No HTTP status, event, persistence, retry, or versioned network API is implemented.
+The accepted ten literal assertions and independent guard in `.decapod/config.toml`
+remain unchanged and are the required proof surface for this interface change.
+
 ## Contract Principles
 - Prefer explicit schemas over implicit behavior.
 - Every mutating interface defines idempotency semantics.
@@ -105,3 +122,12 @@ export enum ApiErrorCode {
 - [ ] Consumers can distinguish validation, authorization, conflict,
   dependency, and internal failures.
 - [ ] Backward compatibility or migration instructions are published.
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->

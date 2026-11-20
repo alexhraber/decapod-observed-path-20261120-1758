@@ -1,4 +1,275 @@
 {
   "schema_version": "1.0.0",
-  "baseline": {}
+  "baseline": {
+    "accepted_commit": "03e7cb8f7d0e392231134df891c19fdd5da43f95"
+  },
+  "change": {
+    "id": "change_01M7XDDJG16EERZKMNV4CCGRHQ",
+    "base_commit": "03e7cb8f7d0e392231134df891c19fdd5da43f95",
+    "target_base": "origin/main"
+  },
+  "claims": {
+    "repository-read": {
+      "statement": "Only active owning-organization members with this repository grant or ownership may read",
+      "falsifier": "Any accepted authorization assertion fails",
+      "status": "open"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "baseline",
+      "summary": "Preserve governed baseline before any access behavior changes",
+      "input_digest": "sha256:f8fe1cf0451a80784fb5fd737754a5c2439caaa9f48f675558c94d00b76d87e8"
+    },
+    {
+      "id": "baseline-spec",
+      "summary": "Author acceptance and baseline limitation without changing access behavior",
+      "input_digest": "sha256:8d1679aa895d744d7ff3d5a7eec21a521b246711a98f27c72c14907b3c0791c7"
+    },
+    {
+      "id": "authorization-fix",
+      "summary": "Enforce repository grant or ownership after active organization membership; preserve native failing baseline and independent guard",
+      "input_digest": "sha256:5f5c99b3bdc7851fb97b72a823e05201561a4b4796577e2c471099e3033f476d"
+    },
+    {
+      "id": "interface-review",
+      "summary": "Record current-content interface review required by validation",
+      "input_digest": "sha256:572066be8197db7be7261463953a5331cdec30a6f106f96f2777714fb8c8df97"
+    },
+    {
+      "id": "architecture-review",
+      "summary": "Record current architecture review following required spec gate",
+      "input_digest": "sha256:32299d6c5a065327df445b04f11ed7103847aec98912628725221d8d1580cfcb"
+    },
+    {
+      "id": "security-review",
+      "summary": "Document and review resource authorization trust boundary",
+      "input_digest": "sha256:c868cb9fb070d527cbfd1a611f912e42cc519f5b9b5169737f24c8726f915126"
+    }
+  ],
+  "intents": {
+    "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ": {
+      "acceptance_criteria": [],
+      "assumptions": [],
+      "boundaries": [
+        "Current claimed task and isolated work branch"
+      ],
+      "constraints": [
+        "root"
+      ],
+      "created_sequence": 1,
+      "id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+      "instruction_origin": {
+        "source_ref": "caller:unverified"
+      },
+      "out_of_scope": [],
+      "proof_requirements": [],
+      "raw_intent": "Implement README repository-scoped read authorization; retain failing baseline and publish verified unmerged PR",
+      "refined_intent": "Implement README repository-scoped read authorization; retain failing baseline and publish verified unmerged PR",
+      "status": "refined",
+      "updated_sequence": 3
+    }
+  },
+  "sections": {
+    "plan": {
+      "constraints": {
+        "file_touch_budget": null,
+        "forbidden_paths": [
+          "src/guard.txt",
+          ".decapod/config.toml"
+        ]
+      },
+      "deferred_questions": [],
+      "human_questions": [],
+      "intent": "Implement README repository-scoped read authorization: active members of owning organization require this repository grant; active owner allowed; deny outsiders and revoked actors. Retain failing native baseline before fix, preserve independent guard and accepted assertions, publish verified PR through Decapod without merging.",
+      "phases": [],
+      "proof_hooks": [
+        "decapod validate"
+      ],
+      "schema_version": "1.1.0",
+      "spec_reviews": [
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/ARCHITECTURE.md",
+          "reason": "Reviewed source: pure synchronous CommonJS predicate, no persistence or network; organization/active gates cannot be bypassed by ownership; grant array guarded; independent source guard unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "37d62c81660b4db9cdeecbd5c93caa0940b83a81c9b5daaa73ea709580f077fa"
+        },
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/INTERFACES.md",
+          "reason": "Reviewed canRead against current source: strict active and organization gates precede owner or array grant; documents null actor, missing grants, caller-owned valid records and boolean output; accepted assertions unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "0e38bb685855fb1e28657cb1198cb320886d75f6e9ba13844bd952d834e0c214"
+        },
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/SECURITY.md",
+          "reason": "Reviewed source and README: membership alone no longer authorizes reads; owner bypass applies only to grants, not active or organization gates. Documents caller identity trust boundary and absent infrastructure controls; guard and accepted proof unchanged.",
+          "reviewed_code_fingerprint": "9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650",
+          "spec_material_hash": "c34cff61498db8a747b259682f2e062ac4a78e8685391f64ae2bd2fec912116f"
+        }
+      ],
+      "state": "APPROVED",
+      "stop_conditions": [],
+      "title": "Implement README repository-scoped read authorization; retain failing baseline and publish verified unmerged PR",
+      "todo_ids": [
+        "feat_01m7xdcrm4p756ed"
+      ],
+      "unknowns": [],
+      "unresolved_contradictions": [],
+      "updated_at": "1795210046Z"
+    },
+    "trajectory": {
+      "active_boundaries": [
+        "Current claimed task and isolated work branch"
+      ],
+      "artifact_hash": "sha256:73c255e21992d2e3fd35b308efad6f5f46fd0fc1c2db52cd2ec29d967986162a",
+      "checks": [
+        {
+          "name": "authorization-baseline",
+          "status": "failed"
+        },
+        {
+          "name": "baseline-prerequisites",
+          "status": "failed"
+        }
+      ],
+      "current_phase": "implementation",
+      "custody": {
+        "events": [
+          {
+            "event_id": "event:2",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "created",
+            "sequence": 2
+          },
+          {
+            "event_id": "event:3",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "refined",
+            "sequence": 3
+          },
+          {
+            "detail": "trajectory:branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "event_id": "event:4",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "trajectory_step_recorded",
+            "sequence": 4
+          },
+          {
+            "detail": "trajectory:branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "event_id": "event:5",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "trajectory_step_recorded",
+            "sequence": 5
+          },
+          {
+            "detail": "trajectory:branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "event_id": "event:6",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "kind": "trajectory_step_recorded",
+            "sequence": 6
+          }
+        ],
+        "knowledge_candidates": [],
+        "next_sequence": 6,
+        "schema_version": "1.1.0",
+        "trajectories": {
+          "branch_01M7XDDJJJF14FGH88EN6G4REP": {
+            "evidence_only": true,
+            "id": "branch_01M7XDDJJJF14FGH88EN6G4REP",
+            "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+            "steps": [
+              {
+                "action": "trajectory.record",
+                "custody_event_id": "event:4",
+                "observations": [
+                  "README.md",
+                  ".decapod/config.toml"
+                ],
+                "proof_refs": [],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 4,
+                "validation_findings": []
+              },
+              {
+                "action": "trajectory.record",
+                "custody_event_id": "event:5",
+                "observations": [
+                  ".decapod/managed/specs/INTENT.md",
+                  "/tmp/decapod-1758-baseline.json"
+                ],
+                "proof_refs": [
+                  "baseline-prerequisites"
+                ],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 5,
+                "validation_findings": []
+              },
+              {
+                "action": "implementation",
+                "command": "decapod validate --format json",
+                "custody_event_id": "event:6",
+                "observations": [
+                  "src/access.cjs",
+                  "src/access.cjs",
+                  ".decapod/managed/specs/INTENT.md",
+                  ".decapod/managed/specs/ARCHITECTURE.md",
+                  ".decapod/managed/specs/INTERFACES.md",
+                  "/tmp/decapod-1758-baseline-native.json",
+                  "/private/var/folders/h9/41kb5hv95hg9yw44654rnl9c0000gn/T/decapod-readiness-jQ88uX/native-0.stderr"
+                ],
+                "proof_refs": [
+                  "authorization-baseline"
+                ],
+                "scope": [
+                  "root"
+                ],
+                "sequence": 6,
+                "validation_findings": []
+              }
+            ]
+          }
+        }
+      },
+      "declared_commands": [
+        "decapod validate --format json"
+      ],
+      "destination": "pull request",
+      "evidence": [
+        "/private/var/folders/h9/41kb5hv95hg9yw44654rnl9c0000gn/T/decapod-readiness-jQ88uX/native-0.stderr",
+        "/tmp/decapod-1758-baseline-native.json",
+        "/tmp/decapod-1758-baseline.json"
+      ],
+      "inspected_files": [
+        ".decapod/config.toml",
+        "README.md",
+        "src/access.cjs"
+      ],
+      "intent_id": "intent:change_01M7XDDJG16EERZKMNV4CCGRHQ",
+      "modified_files": [
+        ".decapod/managed/specs/ARCHITECTURE.md",
+        ".decapod/managed/specs/INTENT.md",
+        ".decapod/managed/specs/INTERFACES.md",
+        "src/access.cjs"
+      ],
+      "next_transitions": [
+        "Refine plan and declare falsifiable checks"
+      ],
+      "repo_scope": [
+        "root"
+      ],
+      "run_id": "branch_01M7XDDJJJF14FGH88EN6G4REP",
+      "schema_version": "1.1.0",
+      "shortcut_risk_signals": [],
+      "task_id": "feat_01m7xdcrm4p756ed",
+      "tool_calls": [],
+      "unresolved_assumptions": []
+    }
+  }
 }

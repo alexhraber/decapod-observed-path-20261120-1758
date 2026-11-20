@@ -36,9 +36,19 @@ flowchart LR
 - Rotation and revocation:
 
 ## Authorization
-- Role model:
-- Resource-level policy:
-- Privilege escalation controls:
+`src/access.cjs::canRead` prevents organization-wide membership from implicitly
+granting repository reads. Active membership in the owning organization is
+mandatory even for the repository owner. Non-owners additionally need this
+repository's exact ID in an array of grants. Missing grants, grants for other
+repositories, revoked actors and foreign organizations deny access.
+
+The caller owns authentication, identifier validity and freshness of membership
+and grants. This predicate cannot authenticate supplied records, revoke cached
+inputs, or protect a caller that bypasses it. It has no persistence, encryption,
+network or auditing implementation; the surrounding template controls below are
+not runtime guarantees. The independent `src/guard.txt` guard and accepted literal
+proof commands remain unchanged. Native baseline failure on missing repository
+grant precedes the fix; fresh validation must prove the current candidate.
 
 ## Data Classification
 | Data Class | Examples | Storage Rules | Access Rules |
@@ -114,3 +124,12 @@ Describe the security primitives and security controls implemented in this repos
 - **Least Privilege**: Ensure minimal access permissions for all subsystems and roles.
 - **Input Validation**: Strictly validate all inputs at trust boundaries.
 - **Secure Storage**: Encrypt sensitive data at rest and in transit.
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->

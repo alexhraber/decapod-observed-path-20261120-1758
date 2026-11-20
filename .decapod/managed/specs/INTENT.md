@@ -10,6 +10,25 @@ Describe the configured project from purpose to architecture to implementation d
 
 Use the seeded context below as a starting point to verify against repository sources. Replace example diagrams, suggested controls, targets, tables, and blank fields with source-grounded prose; mark non-applicable topics with a reason. Do not adopt a store, queue, server, CI provider, replay guarantee, or service level merely because it appears in a template.
 
+## Repository Read Acceptance
+The library protects repository reads for organization members and repository owners.
+README.md requires active membership in the owning organization plus either an
+explicit grant for the requested repository or ownership of that repository.
+Anonymous actors, revoked members (including owners), outsiders, and grants for
+other repositories must be denied. `src/guard.txt` remains an independent guard.
+
+`src/access.cjs::canRead` now requires repository ownership or an array containing
+the requested repository ID after the active owning-organization membership gate.
+Before that change, structured native validation at commit
+`a9f110c46f2bee76af428af0682ff8e31483fbe2` failed the accepted
+`authorization-contract` assertion `missing repository grant` (true !== false).
+Evidence is retained in `decapod-readiness-jQ88uX/native-0.stderr` and its
+structured observations. The earlier FINGERPRINT_ONLY_SPECS failure did not
+establish regression causality; the native assertion failure does.
+The accepted literal assertions in `.decapod/config.toml` govern proof, not any
+replacement test. Publication requires fresh exact-candidate proof and Decapod
+admission; merging and external deployment are out of scope.
+
 ## Product Outcome
 - An isolated repository access module with accepted independent source checks and exact-evidence GitHub publication
 
@@ -129,3 +148,12 @@ flowchart LR
 |---|---|---|---|
 | Which interfaces are versioned at launch? | TBD | YYYY-MM-DD | |
 | Which non-functional target is hardest to hit? | TBD | YYYY-MM-DD | |
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `9176ba6d2dd28c47e0e73b60f5b8622ded40da3243b53472c645c67778f35650`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->
