@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "required": true,
+  "scope": "native_proof_calls",
+  "rule_id": "project.observed_native_path",
+  "authority": "project_override",
+  "observer_authority": "kernel_mediated_native_runner",
+  "phase": "validation",
+  "severity": "error",
+  "source": ".decapod/config.toml#/proof/observed_path",
+  "rule_remediation": {
+    "error_code": "OBSERVED_PATH_FAILED",
+    "violation_description": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven",
+    "expected_condition": "Current owned native authorization and terminal-result observations under the independently accepted policy",
+    "observed_condition": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven",
+    "affected_paths": [
+      ".decapod/config.toml#/proof/observed_path"
+    ],
+    "required_steps": [
+      "Restore the applicable plan and current task lease, retain the accepted path requirement, then rerun native validation through its authorizing adapter"
+    ],
+    "autonomous_remediation_permitted": true,
+    "human_authorization_required": false,
+    "evidence_for_revalidation": [
+      "Fresh actual native outcomes bound to current source/base/instructions/plan/policy/actor/lease"
+    ],
+    "related_rules": []
+  },
+  "process_conformance": "fail",
+  "observation_coverage": "unverifiable",
+  "full_host_coverage": "unverifiable",
+  "binding": {
+    "observation_run_id": "decapod-readiness-v3RdWC",
+    "proof_plan_digest": "sha256:143121930ea16d57a9137b7f34f2177433fd046dbebbc1df86448923e9add63f",
+    "subject": {
+      "repository": "alexhraber/decapod-observed-path-20261120-1758",
+      "work_branch": "agent/pi-1758/feat_01m7xc230d7p7jra-read-auth",
+      "head_revision": "0d12eb06b5980e581c2739216859ff6f9187b531",
+      "base_branch": "main",
+      "accepted_base_revision": "03e7cb8f7d0e392231134df891c19fdd5da43f95",
+      "history_digest": "sha256:da0825d0f2203830da278f33888c23d98fedab121f81ee3ae6bb86d7fc33c90d",
+      "tree_digest": "sha256:46322dd06a5e72244a19dad96f781474ec741dadf9c50063ca30f727720357a5",
+      "configuration_digest": "sha256:25dda136ebe78c9f990df5507b930afc816e8929e50932a07dbfddbeed0a373d",
+      "workflow_digest": "sha256:ec705cf11c7c129db71e511cd00705e0905a47db2cca97294090785470eb599a",
+      "toolchain_digest": "sha256:2ac1b8165670d91a284b6eef71e1b36731df1eb2a9049c140c6d15ddf80c2c3d",
+      "candidate_digest": "sha256:35648eda12c2a9937b56c3d445127bd7cf183387b6cb7f319d29312e8c5be90b"
+    },
+    "execution": {
+      "schema_version": "1.0.0",
+      "task_id": "feat_01m7xc230d7p7jra",
+      "run_id": "branch_01M7XC2N6HSBMK8MAZYQ80KDDQ",
+      "intent_id": "intent:change_01M7XC2N3MPHP250R04XTG2DXR",
+      "head_revision": "0d12eb06b5980e581c2739216859ff6f9187b531",
+      "work_branch": "agent/pi-1758/feat_01m7xc230d7p7jra-read-auth",
+      "material_digest": "sha256:46322dd06a5e72244a19dad96f781474ec741dadf9c50063ca30f727720357a5",
+      "plan_digest": "sha256:b0e9a704f09f51e7ea9919ecf21742825aebea2ed5f1d0f7057f3b9bf87cd3f2",
+      "trajectory_digest": "sha256:bdb66b63c210686f7073ff91d5d1f9458f63feba93e77cd73061eadb7c8ab362",
+      "validation_epoch_digest": "sha256:a8760b48864f23081ea3abc1b499a9eb63153fcc9d2b745443fcdb4de93a5889",
+      "governance_digest": "sha256:5867de74cd3bf61788fe0a0383d5d98fb9b35576a674f8231144ac5b0c37a77b",
+      "policy_digest": "sha256:1e63f4b7b129002e7d216eb9a41dabb9e4ed6f354383af0fe81f01777c1d5752",
+      "task_custody_digest": "sha256:e0377f3e23065173c756ff5a8688af339e6bdbaca9ee2f87ec3391b7bc894356",
+      "required_approvals": []
+    },
+    "instruction_revision": "sha256:8aedf44625845337417356c45a9d48c55e857a15ffc83a111a77bde794bb204c",
+    "actor": "pi-1758-observed-path-a-20261120",
+    "lease_generation": 1,
+    "producer": "decapod-native-runner/0.155.0"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "operation_id": "sha256:5e5a34721200260783b6c1f745b86762c3e3a6328d80a98850d666466e055aae",
+      "previous": null,
+      "event_id": "sha256:4e5c552181777a5178836fd2add482f51ccc937ecd9fe80ba501bc1b7f639ee2",
+      "check": {
+        "provider": "native",
+        "workflow": ".decapod/config.toml",
+        "job": "authorization-contract",
+        "matrix": {},
+        "profile": "repo.pr-readiness.v1"
+      },
+      "kind": "authorization",
+      "outcome": "allowed"
+    },
+    {
+      "sequence": 2,
+      "operation_id": "sha256:a5e57e5018f93b1f19fcc2cd18e81b931be801e7c57a26a24eb16a6c039a8da7",
+      "previous": "sha256:4e5c552181777a5178836fd2add482f51ccc937ecd9fe80ba501bc1b7f639ee2",
+      "event_id": "sha256:adb9a90084022ef4354ee47ffb76ab2359b8d0bd71e9560c523352af9b39896b",
+      "check": {
+        "provider": "native",
+        "workflow": ".decapod/config.toml",
+        "job": "guard-contract",
+        "matrix": {},
+        "profile": "repo.pr-readiness.v1"
+      },
+      "kind": "authorization",
+      "outcome": "allowed"
+    },
+    {
+      "sequence": 3,
+      "operation_id": "sha256:5e5a34721200260783b6c1f745b86762c3e3a6328d80a98850d666466e055aae",
+      "previous": "sha256:adb9a90084022ef4354ee47ffb76ab2359b8d0bd71e9560c523352af9b39896b",
+      "event_id": "sha256:4d4da4dec966f2133b378f43def221660ec1e322b98bc0b813f7c218865cb53c",
+      "check": {
+        "provider": "native",
+        "workflow": ".decapod/config.toml",
+        "job": "authorization-contract",
+        "matrix": {},
+        "profile": "repo.pr-readiness.v1"
+      },
+      "kind": "result",
+      "outcome": "failed"
+    }
+  ],
+  "reason": "Native invocation authorization and terminal results only; application proof is separate, unobserved host activity and independent human identity remain unproven"
+}

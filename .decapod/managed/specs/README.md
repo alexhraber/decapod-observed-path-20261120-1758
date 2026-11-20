@@ -72,3 +72,12 @@ These files are the project-local contract for humans and agents.
 - [ ] Define threat model and auth/authz decisions in [SECURITY.md](./SECURITY.md).
 - [ ] Ensure architecture diagram, docs, changelog, and tests are mapped to promotion gates.
 - [ ] Run all validation/test commands and attach evidence artifacts.
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->
