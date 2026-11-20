@@ -126,3 +126,12 @@ Do not assume database transactions, automatic retries, or side-effect rollback.
 |---|---|---|---|
 | Contract drift across components | Medium | High | Spec + schema checks in CI |
 | Runtime saturation under peak load | Medium | High | Capacity model + load tests |
+
+<!-- decapod:codebase-attestation:start -->
+
+## Codebase Attestation
+
+- Repository signal fingerprint: `7f40ba4cf41a20000695c69f0d256753535d236ef18fa30da9e2126f18fc564d`
+- Significant implementation surfaces: `README.md/` (1 files), `src/` (2 files)
+- Refreshed from the current codebase by `decapod rpc --op specs.refresh`
+<!-- decapod:codebase-attestation:end -->
