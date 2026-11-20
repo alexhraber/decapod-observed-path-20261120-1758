@@ -33,6 +33,11 @@
       "proof_refs": [
         "evidence/baseline/validation.json"
       ]
+    },
+    {
+      "id": "review-interface",
+      "summary": "Record current-code-bound authorization interface review",
+      "input_digest": "sha256:21559c78fdf17af0364b1d64b92fd40e8fbe90cc01a5ffe063147800e980bd3d"
     }
   ],
   "intents": {
@@ -72,6 +77,15 @@
         "decapod validate"
       ],
       "schema_version": "1.1.0",
+      "spec_reviews": [
+        {
+          "disposition": "updated",
+          "path": ".decapod/managed/specs/INTERFACES.md",
+          "reason": "Reviewed canRead: Boolean predicate requires strict active same-org membership before owner or matching array grant; documented caller trust boundary and missing grants.",
+          "reviewed_code_fingerprint": "ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a",
+          "spec_material_hash": "1ab6086cd597264206906814337439f38bb4da87e1696e9cb4d47ec0ff792ba6"
+        }
+      ],
       "state": "APPROVED",
       "stop_conditions": [],
       "title": "Implement README repository read authorization; retain failing baseline and publish verified unmerged PR",
@@ -80,7 +94,7 @@
       ],
       "unknowns": [],
       "unresolved_contradictions": [],
-      "updated_at": "1795208355Z"
+      "updated_at": "1795208553Z"
     },
     "trajectory": {
       "active_boundaries": [
