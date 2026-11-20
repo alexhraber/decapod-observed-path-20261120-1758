@@ -38,6 +38,11 @@
       "id": "review-interface",
       "summary": "Record current-code-bound authorization interface review",
       "input_digest": "sha256:21559c78fdf17af0364b1d64b92fd40e8fbe90cc01a5ffe063147800e980bd3d"
+    },
+    {
+      "id": "review-architecture-security",
+      "summary": "Record architecture and security reviews against current read predicate",
+      "input_digest": "sha256:396daa9119415fb3a16c18d4daf26737ae882094f77a922e662088046bae3d86"
     }
   ],
   "intents": {
@@ -80,10 +85,24 @@
       "spec_reviews": [
         {
           "disposition": "updated",
+          "path": ".decapod/managed/specs/ARCHITECTURE.md",
+          "reason": "Reviewed pure CommonJS implementation and independent guard: no IO or state, organization and activity prerequisite for ownership and grants.",
+          "reviewed_code_fingerprint": "ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a",
+          "spec_material_hash": "49caa1cde39dc91c2174d4cd9c36b2fbcdab4b042802a5cb0e157cb5d8b8093d"
+        },
+        {
+          "disposition": "updated",
           "path": ".decapod/managed/specs/INTERFACES.md",
           "reason": "Reviewed canRead: Boolean predicate requires strict active same-org membership before owner or matching array grant; documented caller trust boundary and missing grants.",
           "reviewed_code_fingerprint": "ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a",
           "spec_material_hash": "1ab6086cd597264206906814337439f38bb4da87e1696e9cb4d47ec0ff792ba6"
+        },
+        {
+          "disposition": "unchanged_with_reason",
+          "path": ".decapod/managed/specs/SECURITY.md",
+          "reason": "Authorization implementation narrows existing read access only; strict active membership and organization checks remain mandatory for owner and grant branches. No new credentials, storage, or network surface. Fixed accepted assertions and independent source guard unchanged.",
+          "reviewed_code_fingerprint": "ecf258fc0627a6bb87bcd82dae5bc461ccbb4b7196593ccc54de686f8a9b197a",
+          "spec_material_hash": "fab63d7c57ddecdf1a9ccac70f33a93e54792609dcc651fe18f4d6504b544ccd"
         }
       ],
       "state": "APPROVED",
@@ -94,7 +113,7 @@
       ],
       "unknowns": [],
       "unresolved_contradictions": [],
-      "updated_at": "1795208553Z"
+      "updated_at": "1795208595Z"
     },
     "trajectory": {
       "active_boundaries": [
